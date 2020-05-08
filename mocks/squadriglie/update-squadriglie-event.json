@@ -1,0 +1,6 @@
+{
+  "pathParameters": {
+    "squadriglia": "Tigri"
+  },
+  "body": "{\"genere\":\"F\",\"lavoraPer\":\"Civitas\",\"note\":\"LALALAL\"}"
+}

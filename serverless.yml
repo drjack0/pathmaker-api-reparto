@@ -1,0 +1,229 @@
+service: pathmaker-reparto-squadriglia-api
+
+package:
+  individually: true
+
+plugins:
+  - serverless-bundle
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: prod
+  region: eu-central-1
+
+  environment:
+    tableNameReparto: PathMaker_Reparto
+    tableNameSquadriglie: PathMaker_Squadriglie
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:eu-central-1:280343356630:table/*"
+
+functions:
+
+#APIS FOR REPARTO TABLE
+  createMember:
+    handler: createMember.main #OK!
+    events:
+      - http:
+          path: reparto 
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  getMember:
+    handler: getMember.main #OK!
+    events:
+      - http:
+          path: reparto/{censcode}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  updateMainMember:
+    handler: updateMember.main #OK!
+    events:
+      - http:
+          path: reparto/{censcode}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  updateMensiliMember:
+    handler: updateMember.mensili #OK!
+    events:
+      - http:
+          path: reparto/mensili/{censcode}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  updateSentieroMember:
+    handler: updateMember.sentiero #OK!
+    events:
+      - http:
+          path: reparto/sentiero/{censcode}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  updateRecapitiMember:
+    handler: updateMember.recapiti #OK!
+    events:
+      - http:
+          path: reparto/recapiti/{censcode}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  updateMammaMember:
+    handler: updateMember.mamma #OK!
+    events:
+      - http:
+          path: reparto/mamma/{censcode}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  updatePapaMember:
+    handler: updateMember.papa #OK!
+    events:
+      - http:
+          path: reparto/papa/{censcode}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  updateBurocraziaMember:
+    handler: updateMember.burocrazia #OK!
+    events:
+      - http:
+          path: reparto/burocrazia/{censcode}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  deleteMember:
+    handler: deleteMember.main #OK!
+    events:
+      - http:
+          path: reparto/{censcode}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+
+  scanMember:
+    handler: scanMember.main #OK!
+    events:
+      - http:
+          path: reparto/scan
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  scanMemberSquad:
+    handler: scanMember.memberSquad #OK!
+    events:
+      - http:
+          path: reparto/scan/squad
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  addMemberObiettivo:
+    handler: updateMember.addObiettivo
+    events:
+      - http:
+          path: reparto/sentiero/addobiettivo/{censcode}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  addMemberCompetenza:
+    handler: updateMember.addCompetenza
+    events:
+      - http:
+          path: reparto/sentiero/addcompetenza/{censcode}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  deleteMemberObiettivo:
+    handler: updateMember.deleteObiettivo
+    events:
+      - http:
+          path: reparto/sentiero/deleteobiettivo/{censcode}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  deleteMemberCompetenza:
+    handler: updateMember.deleteCompetenza
+    events:
+      - http:
+          path: reparto/sentiero/deletecompetenza/{censcode}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+
+
+#APIS FOR SQUADRIGLIA TABLE
+  createSquadriglia:
+    handler: createSquadriglia.main #OK!
+    events:
+      - http:
+          path: squadriglie
+          method: post
+          cors: true
+          authorizer: aws_iam
+          
+  getSquadriglia:
+    handler: getSquadriglia.main #OK!
+    events:
+      - http:
+          path: squadriglie/{squadriglia}
+          method: get
+          cors: true
+          authorizer: aws_iam
+  
+  updateSquadriglia:
+    handler: updateSquadriglia.main #OK!
+    events:
+      - http:
+          path: squadriglie/{squadriglia}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  deleteSquadriglia:
+    handler: deleteSquadriglia.main #OK!
+    events:
+      - http:
+          path: squadriglie/{squadriglia}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+
+  scanSquadriglie:
+    handler: scanSquadriglie.main #OK!
+    events:
+      - http:
+          path: squadriglie/scan
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+resources:
+  - ${file(resources/api-gateway-errors.yml)}
