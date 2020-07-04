@@ -42,7 +42,7 @@ export function main(event, context, callback) {
     scanExecute(callback);
 }
 
-export function memberSquad(event,context,callback) {
+/*export function memberSquad(event,context,callback) {
     console.log(event);
     const data = JSON.parse(event.body);
     const params = {
@@ -87,4 +87,4 @@ export function memberSquad(event,context,callback) {
         });
     };
     scanExecute(callback);
-}
+}*/
