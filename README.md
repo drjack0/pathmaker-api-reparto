@@ -50,6 +50,8 @@ $ npm install
 
 ### Some Informations...
 
+This Repository refers to "Reparto" and "Squadriglia" Microservices
+
 These documented functions have been coded to manage basic CRUD Operations regarding some AWS-DynamoDB tables: in detail, they allow the user, through specific API calls, to interface with "Reparto" and "Squadriglia" DynamoDB Tables remotely.
 
 The calls are encrypted with sigv4 method, therefore they need some specific AWS keys (ACCESS-KEY & SECRET-KEY) for the use, with the latter used to encode the REST calls to the server.
