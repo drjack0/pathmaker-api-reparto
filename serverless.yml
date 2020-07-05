@@ -21,7 +21,7 @@ custom:
           url: https://www.pathmaker.it
           email: drjackdevelopment@gmail.com
         license:
-          name: MIT
+          name: plugins from Anomaly Innovations
       tags:
         -
           name: Reparto
@@ -356,31 +356,28 @@ custom:
         schema:
           type: object
           properties:
-            mensili:
-              type: object
-              properties:
-                ottobre:
-                  type: string
-                novembre:
-                  type: string
-                dicembre:
-                  type: string
-                gennaio:
-                  type: string
-                febbraio:
-                  type: string
-                marzo:
-                  type: string
-                aprile:
-                  type: string
-                maggio:
-                  type: string
-                campoExtra:
-                  type: string
-                accontoEstivo:
-                  type: string
-                saldoEstivo:
-                  type: string
+            ottobre:
+              type: string
+            novembre:
+              type: string
+            dicembre:
+              type: string
+            gennaio:
+              type: string
+            febbraio:
+              type: string
+            marzo:
+              type: string
+            aprile:
+              type: string
+            maggio:
+              type: string
+            campoExtra:
+              type: string
+            accontoEstivo:
+              type: string
+            saldoEstivo:
+              type: string
       -
         name: UpdateRepartoMemberSentieroModel
         description: "REQUEST BODY - Update Reparto Member Model - Sentiero"
@@ -388,23 +385,20 @@ custom:
         schema:
           type: object
           properties:
-            sentiero:
-              type: object
-              properties:
-                anno:
-                  type: string
-                camminaPer:
-                  type: string
-                incarico:
-                  type: string
-                lavoraPer:
-                  type: string
-                noteSentiero:
-                  type: string
-                squadriglia:
-                  type: string
-              required:
-                - squadriglia
+            anno:
+              type: string
+            camminaPer:
+              type: string
+            incarico:
+              type: string
+            lavoraPer:
+              type: string
+            noteSentiero:
+              type: string
+            squadriglia:
+              type: string
+          required:
+            - squadriglia
       -
         name: UpdateRepartoMemberRecapitiModel
         description: "REQUEST BODY - Update Reparto Member Model - Recapiti"
@@ -412,17 +406,14 @@ custom:
         schema:
           type: object
           properties:
-            recapiti:
-              type: object
-              properties:
-                casa:
-                  type: string
-                cellulare:
-                  type: string
-                indirizzo:
-                  type: string
-                nascita:
-                  type: string
+            casa:
+              type: string
+            cellulare:
+              type: string
+            indirizzo:
+              type: string
+            nascita:
+              type: string
       -
         name: UpdateRepartoMemberMammaModel
         description: "REQUEST BODY - Update Reparto Member Model - Mamma"
@@ -430,15 +421,12 @@ custom:
         schema:
           type: object
           properties:
-            mamma:
-              type: object
-              properties:
-                cellMamma:
-                  type: string
-                mailMamma:
-                  type: string
-                nomeMamma:
-                  type: string
+            cellMamma:
+              type: string
+            mailMamma:
+              type: string
+            nomeMamma:
+              type: string
       -
         name: UpdateRepartoMemberPapaModel
         description: "REQUEST BODY - Update Reparto Member Model - Papa"
@@ -446,15 +434,12 @@ custom:
         schema:
           type: object
           properties:
-            papa:
-              type: object
-              properties:
-                cellPapa:
-                  type: string
-                mailPapa:
-                  type: string
-                nomePapa:
-                  type: string
+            cellPapa:
+              type: string
+            mailPapa:
+              type: string
+            nomePapa:
+              type: string
       -
         name: UpdateRepartoMemberBurocraziaModel
         description: "REQUEST BODY - Update Reparto Member Model - Burocrazia"
@@ -462,56 +447,53 @@ custom:
         schema:
           type: object
           properties:
-            burocrazia:
+            censimentoAutorizzazione:
               type: object
               properties:
-                censimentoAutorizzazione:
-                  type: object
-                  properties:
-                    consegnato:
-                      type: string
-                    dataConsegna:
-                      type: string
-                    documento:
-                      type: string
-                censimentoDocumento:
-                  type: object
-                  properties:
-                    consegnato:
-                      type: string
-                    dataConsegna:
-                      type: string
-                    documento:
-                      type: string
-                privacyDocumento:
-                  type: object
-                  properties:
-                    consegnato:
-                      type: string
-                    dataConsegna:
-                      type: string
-                    documento:
-                      type: string
-                ssDocumento:
-                  type: object
-                  properties:
-                    consegnato:
-                      type: string
-                    dataConsegna:
-                      type: string
-                    documento:
-                      type: string
-                tsDocumento:
-                  type: object
-                  properties:
-                    consegnato:
-                      type: string
-                    dataConsegna:
-                      type: string
-                    documento:
-                      type: string
-                censimento:
+                consegnato:
                   type: string
+                dataConsegna:
+                  type: string
+                documento:
+                  type: string
+            censimentoDocumento:
+              type: object
+              properties:
+                consegnato:
+                  type: string
+                dataConsegna:
+                  type: string
+                documento:
+                  type: string
+            privacyDocumento:
+              type: object
+              properties:
+                consegnato:
+                  type: string
+                dataConsegna:
+                  type: string
+                documento:
+                  type: string
+            ssDocumento:
+              type: object
+              properties:
+                consegnato:
+                  type: string
+                dataConsegna:
+                  type: string
+                documento:
+                  type: string
+            tsDocumento:
+              type: object
+              properties:
+                consegnato:
+                  type: string
+                dataConsegna:
+                  type: string
+                documento:
+                  type: string
+            censimento:
+              type: string
       -
         name: AddRepartoMemberObiettivoModel
         description: "REQUEST BODY - Update Reparto Member Model - Add Obiettivo"
